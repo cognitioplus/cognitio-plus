@@ -13,7 +13,6 @@ import { HRVMeasurement } from './components/HRVMeasurement';
 import { SubscriptionPage } from './components/SubscriptionPage';
 import { HabitMenu } from './components/HabitMenu';
 import { HabitDesigner } from './components/HabitDesigner';
-import { GrowthTribeForum } from './components/GrowthTribeForum';
 import { saveOnboardingData } from './services/supabase';
 import { getRecommendations, getBadgeForUser } from './services/recommendation';
 
