@@ -1,25 +1,15 @@
-{
-  "name": "cognitio-plus",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
-  "engines": {
-    "node": "22.x",
-    "npm": "10.x"
-  },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
-  "devDependencies": {
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.2",
-    "typescript": "~5.5.3",
-    "vite": "^6.3.5"
-  }
-}
+const express = require('express');
+const path = require('path');
+const app = express();
+
+app.use(express.static(path.join(__dirname, 'dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+// ✅ Use process.env.PORT
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}`);
+});
