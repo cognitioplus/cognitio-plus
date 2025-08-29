@@ -1,4 +1,3 @@
-
 import React from 'react';
 import type { UserType } from '../../types';
 import { useOnboarding } from '../../contexts/UserContext';
