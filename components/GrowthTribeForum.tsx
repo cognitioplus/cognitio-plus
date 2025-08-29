@@ -3,9 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './Car
 import { Textarea } from './Form/Textarea';
 import { useOnboarding } from '../contexts/UserContext';
 import { useLanguage } from '../contexts/LanguageContext';
-import { TribePost } from './TribePost';
-import type { TribePostData } from '../types';
-
 export const GrowthTribeForum: React.FC = () => {
   const { posts, setPosts, setEngagementCount } = useOnboarding();
   const { t } = useLanguage();
@@ -16,25 +13,11 @@ export const GrowthTribeForum: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!newPostContent.trim()) return;
-
-    const newPost: TribePostData = {
-      id: `post_${Date.now()}`,
-      authorName: isAnonymous ? 'Community Member' : 'Well-Be Member',
-      content: newPostContent,
-      isAnonymous,
-      engagementScore: 0,
-      createdAt: new Date().toISOString(),
-      replies: [],
-      likedBy: [],
-    };
-
     setPosts(prevPosts => [newPost, ...prevPosts]);
     setEngagementCount(prev => prev + 1);
     setNewPostContent('');
     setIsAnonymous(false);
   };
-
-  return (
     <div className="w-full max-w-3xl mx-auto p-4 sm:p-6 animate-fade-in mt-16">
       <Card>
         <CardHeader>
