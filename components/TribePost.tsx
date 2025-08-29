@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/lib/supabase';
 import { useState } from 'react';
-import { MessageCircle, Heart, Star } from 'lucide-react';
+import { MessageCircle, Heart } from 'lucide-react';
 
 export function TribePost({ post }) {
   const [replies, setReplies] = useState<any[]>([]);
@@ -42,16 +42,18 @@ export function TribePost({ post }) {
       fetchReplies();
       setShowReplies(true);
 
-      const {  userData } = await supabase
+      const { data: userData } = await supabase
         .from('user_profiles')
         .select('engagement_check_ins')
         .eq('user_id', user.id)
         .single();
 
-      await supabase
-        .from('user_profiles')
-        .update({ engagement_check_ins: (userData.engagement_check_ins || 0) + 1 })
-        .eq('user_id', user.id);
+      if (userData) {
+        await supabase
+          .from('user_profiles')
+          .update({ engagement_check_ins: (userData.engagement_check_ins || 0) + 1 })
+          .eq('user_id', user.id);
+      }
     }
   };
 
