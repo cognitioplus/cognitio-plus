@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cognitio+</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primary': '#b425aa',
+              'primary-accent': '#c80ec9',
+              'secondary': '#f3e329',
+              'neutral': '#c4c3b2',
+              'text-dark': '#1f2937', // A darker gray for main text
+              'text-light': '#6b7280', // A lighter gray for subtitles
+              'background-light': '#f9fafb',
+              'success': '#10b981',
+              'warning': '#f59e0b',
+              'danger': '#ef4444',
+            },
+            fontFamily: {
+              'oswald': ['Oswald', 'sans-serif'],
+              'montserrat': ['Montserrat', 'sans-serif'],
+              'roboto': ['"Roboto Condensed"', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
+    <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
