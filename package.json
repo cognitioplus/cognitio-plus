@@ -43,3 +43,12 @@
     "vite": "^6.2.0"
   }
 }
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "start": "node server.js",
+    "heroku-postbuild": "npm run build"
+  }
+}
