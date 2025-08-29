@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 // Fix: Import the 'en' translation object to correctly type the translation keys.
