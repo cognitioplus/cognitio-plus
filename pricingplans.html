@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#e91e63" />
+  <meta name="theme-color" content="#b425aa" />
   <meta name="description" content="Explore Cognitio+ pricing plans for individuals, teams, and organizations. Build resilience with personalized tools and AI-powered support." />
+  <meta property="og:title" content="Cognitio+ Pricing Plans" />
+  <meta property="og:description" content="Choose the plan that builds your resilience." />
+  <meta property="og:image" content="https://appimize.app/assets/apps/user_1097/images/6c5258761ab8_149_1097.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cognitioplus.github.io/cognitio-plus/pricingplans.html" />
+  <link rel="icon" href="https://appimize.app/assets/apps/user_1097/images/b2e254093bca_935_1097.png" />
   <title>Cognitio+ Pricing Plans</title>
-  <link rel="icon" href="icons/icon-192.png" />
-
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -17,7 +21,7 @@
       color: #333;
     }
     header {
-      background-color: #e91e63;
+      background-color: #b425aa;
       color: white;
       padding: 1rem;
       text-align: center;
@@ -36,13 +40,13 @@
     }
     .plan h2 {
       margin-top: 0;
-      color: #e91e63;
+      color: #b425aa;
     }
     .plan p {
       margin: 0.5rem 0;
     }
     .cta-button {
-      background-color: #e91e63;
+      background-color: #b425aa;
       color: white;
       border: none;
       padding: 0.75rem 1.5rem;
@@ -52,7 +56,7 @@
       margin-top: 1rem;
     }
     .cta-button:hover {
-      background-color: #d81b60;
+      background-color: #9e1e94;
     }
     footer {
       text-align: center;
@@ -70,16 +74,16 @@
       "start_url": "/pricingplans.html",
       "display": "standalone",
       "background_color": "#ffffff",
-      "theme_color": "#e91e63",
+      "theme_color": "#b425aa",
       "description": "Explore Cognitio+ pricing plans for individuals, teams, and organizations. Build resilience with personalized tools and AI-powered support.",
       "icons": [
         {
-          "src": "icons/icon-192.png",
+          "src": "https://appimize.app/assets/apps/user_1097/images/b2e254093bca_935_1097.png",
           "sizes": "192x192",
           "type": "image/png"
         },
         {
-          "src": "icons/icon-512.png",
+          "src": "https://appimize.app/assets/apps/user_1097/images/b2e254093bca_935_1097.png",
           "sizes": "512x512",
           "type": "image/png"
         }
@@ -101,21 +105,21 @@
       <h2>Starter Plan</h2>
       <p>Perfect for individuals beginning their journey.</p>
       <p><strong>₱500</strong> one-time</p>
-      <button class="cta-button" onclick="initiatePayment()">Get Started</button>
+      <button class="cta-button" onclick="initiatePayment('Starter Plan', 50000)">Get Started</button>
     </div>
 
     <div class="plan">
       <h2>Team Plan</h2>
       <p>Designed for small teams and collaborative growth.</p>
       <p><strong>₱2,000</strong> per month</p>
-      <button class="cta-button">Contact Us</button>
+      <button class="cta-button" onclick="initiatePayment('Team Plan', 200000)">Get Started</button>
     </div>
 
     <div class="plan">
       <h2>Enterprise Plan</h2>
       <p>Custom solutions for organizations and institutions.</p>
       <p><strong>Custom pricing</strong></p>
-      <button class="cta-button">Contact Us</button>
+      <button class="cta-button" onclick="initiatePayment('Enterprise Plan', 0)">Get Started</button>
     </div>
   </div>
 
@@ -128,7 +132,7 @@
   <script>
     Xendit.setPublicKey('xnd_public_production_uUizjV1k4R7FPracOjYyarkqIF0dj7blvlDfQgkxtDq9zMnxHYvOinENe4uYNf3');
 
-    function initiatePayment() {
+    function initiatePayment(planName, amount) {
       fetch('https://api.xendit.co/v2/invoices', {
         method: 'POST',
         headers: {
@@ -136,11 +140,11 @@
           'Authorization': 'Basic ' + btoa('xnd_public_production_uUizjV1k4R7FPracOjYyarkqIF0dj7blvlDfQgkxtDq9zMnxHYvOinENe4uYNf3' + ':')
         },
         body: JSON.stringify({
-          external_id: 'invoice_123124123',
-          amount: 50000,
+          external_id: 'invoice_' + Date.now(),
+          amount: amount,
           payer_email: 'wildan@xendit.co',
-          description: 'Cognitio+ Starter Plan',
-          success_redirect_url: 'https://cognitioplus.github.io/cognitio-plus/success.html'
+          description: 'Cognitio+ ' + planName,
+          success_redirect_url: 'https://cognitioplus.github.io/cognitio-plus/success.html?plan=' + encodeURIComponent(planName)
         })
       })
       .then(response => response.json())
@@ -160,8 +164,8 @@
             caches.open('cognitio-cache-v1').then(cache => {
               return cache.addAll([
                 '/pricingplans.html',
-                '/icons/icon-192.png',
-                '/icons/icon-512.png'
+                'https://appimize.app/assets/apps/user_1097/images/b2e254093bca_935_1097.png',
+                'https://appimize.app/assets/apps/user_1097/images/6c5258761ab8_149_1097.png'
               ]);
             })
           );
