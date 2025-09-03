@@ -3,19 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cognitio+ Pricing Plans</title>
-
-  <!-- PWA Meta -->
-  <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#e91e63" />
+  <meta name="description" content="Explore Cognitio+ pricing plans for individuals, teams, and organizations. Build resilience with personalized tools and AI-powered support." />
+  <title>Cognitio+ Pricing Plans</title>
   <link rel="icon" href="icons/icon-192.png" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png" />
 
-  <!-- React CDN -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-
-  <!-- Inline Styles -->
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -24,201 +16,168 @@
       background: #f9f9f9;
       color: #333;
     }
-    .pricing-page {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
-    }
-    .pricing-header {
+    header {
+      background-color: #e91e63;
+      color: white;
+      padding: 1rem;
       text-align: center;
-      margin-bottom: 2rem;
     }
-    .currency-toggle {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 1rem;
     }
-    .plans-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-    .plan-card {
+    .plan {
       background: white;
       border-radius: 8px;
-      padding: 1rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
     }
-    .price {
-      font-size: 1.5rem;
-      font-weight: bold;
+    .plan h2 {
+      margin-top: 0;
       color: #e91e63;
     }
-    .user-type {
-      font-style: italic;
-      margin-bottom: 0.5rem;
-    }
-    .addons-section, .strategy-notes {
-      margin-top: 2rem;
-    }
-    .cta-footer {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
+    .plan p {
+      margin: 0.5rem 0;
     }
     .cta-button {
-      background: #e91e63;
+      background-color: #e91e63;
       color: white;
       border: none;
       padding: 0.75rem 1.5rem;
+      font-size: 1rem;
       border-radius: 4px;
       cursor: pointer;
+      margin-top: 1rem;
     }
-    .cta-button.secondary {
-      background: #555;
+    .cta-button:hover {
+      background-color: #d81b60;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
     }
   </style>
+
+  <!-- Embedded manifest.json -->
+  <script type="application/manifest+json">
+    {
+      "name": "Cognitio+ Pricing Plans",
+      "short_name": "Cognitio+",
+      "start_url": "/pricingplans.html",
+      "display": "standalone",
+      "background_color": "#ffffff",
+      "theme_color": "#e91e63",
+      "description": "Explore Cognitio+ pricing plans for individuals, teams, and organizations. Build resilience with personalized tools and AI-powered support.",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "icons/icon-512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ],
+      "orientation": "portrait",
+      "lang": "en",
+      "scope": "/"
+    }
+  </script>
 </head>
 <body>
-  <div id="root"></div>
+  <header>
+    <h1>Cognitio+ Pricing Plans</h1>
+    <p>Choose the plan that builds your resilience</p>
+  </header>
 
-  <script type="text/javascript">
-    const { useState } = React;
+  <div class="container">
+    <div class="plan">
+      <h2>Starter Plan</h2>
+      <p>Perfect for individuals beginning their journey.</p>
+      <p><strong>₱500</strong> one-time</p>
+      <button class="cta-button" onclick="initiatePayment()">Get Started</button>
+    </div>
 
-    const exchangeRate = 57.29;
+    <div class="plan">
+      <h2>Team Plan</h2>
+      <p>Designed for small teams and collaborative growth.</p>
+      <p><strong>₱2,000</strong> per month</p>
+      <button class="cta-button">Contact Us</button>
+    </div>
 
-    const plans = [
-      { name: '🌱 Starter', priceUSD: 9.99, user: 'Curious individuals', features: ['Oasis breathing module', 'Resilience score', 'Goal selection'] },
-      { name: '🧠 Core Resilience', priceUSD: 24.99, user: 'Structured growth seekers', features: ['All Starter features', 'Trauma recovery tools', 'Support navigator', 'Vulnerability mapping'] },
-      { name: '🚀 Pro Navigator', priceUSD: 49.99, user: 'High-engagement users', features: ['All Core features', 'AI-powered coaching', 'Engagement simulation', 'Custom goal tracking'] },
-      { name: '🧑‍🤝‍🧑 Team Thrive', priceUSD: 199.99, user: 'Small teams (up to 10 users)', features: ['All Pro features', 'Team dashboard', 'Shared goals', 'Group resilience analytics'] },
-      { name: '🏢 Enterprise+', priceUSD: null, user: 'Organizations & institutions', features: ['Full platform access', 'Custom onboarding', 'API integration', 'Dedicated support'] },
-    ];
+    <div class="plan">
+      <h2>Enterprise Plan</h2>
+      <p>Custom solutions for organizations and institutions.</p>
+      <p><strong>Custom pricing</strong></p>
+      <button class="cta-button">Contact Us</button>
+    </div>
+  </div>
 
-    const addOns = [
-      { name: '1-on-1 AI Coaching', priceUSD: 14.99 },
-      { name: 'Trauma Recovery Toolkit', priceUSD: 9.99 },
-      { name: 'Resilience Score Deep Dive', priceUSD: 4.99 },
-      { name: 'Custom Engagement Simulation', priceUSD: 19.99 },
-    ];
+  <footer>
+    &copy; 2025 Cognitio+. All rights reserved.
+  </footer>
 
-    function PricingPlans() {
-      const [currency, setCurrency] = useState('USD');
-
-      const formatPrice = (usd) => {
-        if (usd === null) return 'Custom Quote';
-        return currency === 'USD'
-          ? `$${usd.toFixed(2)}`
-          : `₱${Math.round(usd * exchangeRate).toLocaleString()}`;
-      };
-
-      return (
-        React.createElement('section', { className: 'pricing-page' },
-          React.createElement('header', { className: 'pricing-header' },
-            React.createElement('h1', null, 'Cognitio+ Pricing Plans'),
-            React.createElement('p', null, 'Choose the path that fits your journey toward resilience.'),
-            React.createElement('div', { className: 'currency-toggle' },
-              ['USD', 'PHP'].map((cur) =>
-                React.createElement('label', { key: cur },
-                  React.createElement('input', {
-                    type: 'radio',
-                    value: cur,
-                    checked: currency === cur,
-                    onChange: () => setCurrency(cur)
-                  }),
-                  ` ${cur}`
-                )
-              )
-            )
-          ),
-          React.createElement('div', { className: 'plans-container' },
-            plans.map((plan, index) =>
-              React.createElement('div', { className: 'plan-card', key: index },
-                React.createElement('h2', null, plan.name),
-                React.createElement('p', { className: 'price' }, formatPrice(plan.priceUSD)),
-                React.createElement('p', { className: 'user-type' }, plan.user),
-                React.createElement('ul', null,
-                  plan.features.map((feature, i) =>
-                    React.createElement('li', { key: i }, `✔ ${feature}`)
-                  )
-                )
-              )
-            )
-          ),
-          React.createElement('div', { className: 'addons-section' },
-            React.createElement('h3', null, '🎯 Add-On Options'),
-            React.createElement('ul', null,
-              addOns.map((addon, i) =>
-                React.createElement('li', { key: i },
-                  React.createElement('strong', null, addon.name),
-                  ` — ${formatPrice(addon.priceUSD)}`
-                )
-              )
-            )
-          ),
-          React.createElement('div', { className: 'strategy-notes' },
-            React.createElement('h3', null, '🧩 Why Cognitio+'),
-            React.createElement('ul', null,
-              ['Freemium Entry Point: Try Starter free for 7 days.',
-               'Goal-Based Upsell: Personalized upgrade suggestions.',
-               'Emotional ROI: “Build resilience for less than a coffee a week.”']
-              .map((note, i) => React.createElement('li', { key: i }, note))
-            )
-          ),
-          React.createElement('footer', { className: 'cta-footer' },
-            React.createElement('button', { className: 'cta-button' }, 'Start Free Trial'),
-            React.createElement('button', { className: 'cta-button secondary' }, 'Contact Sales')
-          )
-        )
-      );
-    }
-
-    ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(PricingPlans));
-  </script>
+  <!-- Xendit Payment Integration -->
+  <script src="https://js.xendit.co/v1/xendit.min.js"></script>
   <script>
-  const CACHE_NAME = 'cognitio-cache-v1';
-const urlsToCache = [
-  '/',
-  '/pricingplans.html',
-  '/manifest.json',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png'
-];
+    Xendit.setPublicKey('xnd_public_production_uUizjV1k4R7FPracOjYyarkqIF0dj7blvlDfQgkxtDq9zMnxHYvOinENe4uYNf3');
 
-// Install event: cache files
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(urlsToCache);
-    })
-  );
-});
-
-// Activate event: clean up old caches
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys.map(key => {
-          if (key !== CACHE_NAME) {
-            return caches.delete(key);
-          }
+    function initiatePayment() {
+      fetch('https://api.xendit.co/v2/invoices', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Basic ' + btoa('xnd_public_production_uUizjV1k4R7FPracOjYyarkqIF0dj7blvlDfQgkxtDq9zMnxHYvOinENe4uYNf3' + ':')
+        },
+        body: JSON.stringify({
+          external_id: 'invoice_123124123',
+          amount: 50000,
+          payer_email: 'wildan@xendit.co',
+          description: 'Cognitio+ Starter Plan',
+          success_redirect_url: 'https://cognitioplus.github.io/cognitio-plus/success.html'
         })
-      )
-    )
-  );
-});
+      })
+      .then(response => response.json())
+      .then(data => {
+        window.location.href = data.invoice_url;
+      })
+      .catch(error => console.error('Payment initiation failed:', error));
+    }
+  </script>
 
-// Fetch event: serve cached content when offline
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response =>
-      response || fetch(event.request)
-    )
-  );
-});
+  <!-- Embedded service-worker.js -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('data:application/javascript;charset=utf-8,' + encodeURIComponent(`
+        self.addEventListener('install', event => {
+          event.waitUntil(
+            caches.open('cognitio-cache-v1').then(cache => {
+              return cache.addAll([
+                '/pricingplans.html',
+                '/icons/icon-192.png',
+                '/icons/icon-512.png'
+              ]);
+            })
+          );
+        });
+
+        self.addEventListener('fetch', event => {
+          event.respondWith(
+            caches.match(event.request).then(response => {
+              return response || fetch(event.request);
+            })
+          );
+        });
+      `))
+      .then(reg => console.log('Service Worker registered:', reg.scope))
+      .catch(err => console.error('Service Worker registration failed:', err));
+    }
   </script>
 </body>
 </html>
