@@ -3,72 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#e91e63" />
-  <title>Payment Successful – Cognitio+</title>
+  <meta name="theme-color" content="#b425aa" />
+  <meta name="description" content="Thank you for choosing Cognitio+. Your plan is now active." />
+  <meta property="og:title" content="Cognitio+ Success" />
+  <meta property="og:description" content="Your Cognitio+ plan is now active. Welcome aboard!" />
+  <meta property="og:image" content="https://appimize.app/assets/apps/user_1097/images/6c5258761ab8_149_1097.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cognitioplus.github.io/cognitio-plus/success.html" />
+  <link rel="icon" href="https://appimize.app/assets/apps/user_1097/images/b2e254093bca_935_1097.png" />
+  <title>Success | Cognitio+</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
       margin: 0;
       padding: 0;
-      text-align: center;
+      background: #f9f9f9;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
     }
-    .container {
-      max-width: 600px;
-      margin: 5rem auto;
-      padding: 2rem;
+    .message-box {
       background: white;
+      padding: 2rem;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      max-width: 500px;
     }
     h1 {
-      color: #e91e63;
+      color: #b425aa;
       margin-bottom: 1rem;
     }
     p {
       font-size: 1.1rem;
-      margin-bottom: 2rem;
     }
-    .btn {
-      background-color: #e91e63;
+    .plan-name {
+      font-weight: bold;
+      color: #b425aa;
+    }
+    .home-button {
+      margin-top: 2rem;
+      background-color: #b425aa;
       color: white;
-      padding: 0.75rem 1.5rem;
       border: none;
-      border-radius: 4px;
+      padding: 0.75rem 1.5rem;
       font-size: 1rem;
+      border-radius: 4px;
       cursor: pointer;
       text-decoration: none;
+      display: inline-block;
     }
-    .btn:hover {
-      background-color: #d81b60;
+    .home-button:hover {
+      background-color: #9e1e94;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎉 Payment Successful!</h1>
-    <p>Thank you <strong>wildan@xendit.co</strong> for choosing Cognitio+.</p>
-    <p>Your Starter Plan is now active. You’ll receive a confirmation email shortly with your access details.</p>
-    <a href="/pricingplans.html" class="btn">Back to Pricing</a>
+  <div class="message-box">
+    <h1>🎉 Thank You!</h1>
+    <p>Your <span class="plan-name" id="planName">selected plan</span> is now active.</p>
+    <p>We're excited to have you on board with Cognitio+.</p>
+    <a href="https://cognitio-plus.appimize.app/home" class="home-button">Back to Home</a>
   </div>
 
-  <!-- 🔍 Conversion Tracking Pixel (Google Analytics example) -->
-  <img src="https://www.google-analytics.com/collect?v=1&t=event&tid=UA-XXXXXX-Y&cid=wildan@xendit.co&ec=Payment&ea=Success&el=StarterPlan&ev=50000" width="1" height="1" style="display:none;" alt="Conversion Pixel" />
-
-  <!-- Optional: Google Tag Manager or other analytics -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXX-Y"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-XXXXXX-Y');
-    gtag('event', 'purchase', {
-      transaction_id: 'invoice_123124123',
-      value: 50000,
-      currency: 'IDR',
-      email: 'wildan@xendit.co'
-    });
-  </script> -->
+    const urlParams = new URLSearchParams(window.location.search);
+    const plan = urlParams.get('plan');
+    const planNameElement = document.getElementById('planName');
+    if (plan) {
+      planNameElement.textContent = plan;
+    }
+  </script>
 </body>
 </html>
